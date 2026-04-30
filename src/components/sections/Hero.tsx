@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useUI } from "../ui-state";
 
-const heroVideo = "/videos/batumi-hero.mp4";
+const heroVideo = `${import.meta.env.BASE_URL}videos/batumi-hero.mp4`;
 
 const accessRoutes = [
   {
