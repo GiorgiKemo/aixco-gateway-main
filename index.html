@@ -4,8 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f1115" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="alternate icon" href="%BASE_URL%favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="%BASE_URL%favicon-180.png" />
     <link rel="canonical" href="https://aixco.global/" />
+
+    <script>
+      (function (location) {
+        if (location.search[1] !== "/") return;
+
+        var decoded = location.search
+          .slice(1)
+          .split("&")
+          .map(function (part) {
+            return part.replace(/~and~/g, "&");
+          })
+          .join("?");
+
+        window.history.replaceState(null, null, location.pathname.slice(0, -1) + decoded + location.hash);
+      })(window.location);
+    </script>
 
     <title>AIXCO Global — Quality Real Estate Participation from €1,000</title>
     <meta name="description" content="AIXCO Global is a private real-estate participation platform. Invest in selected projects in Dubai and Batumi from €1,000 — bonds and apartments, institutional standards." />
@@ -16,13 +34,13 @@
     <meta property="og:description" content="Selected real-estate projects in Dubai & Batumi. Participate from €1,000." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aixco.global/" />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="%BASE_URL%og-image.png" />
     <meta property="og:site_name" content="AIXCO Global" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AIXCO Global — Quality Real Estate Participation" />
     <meta name="twitter:description" content="Selected real-estate projects in Dubai & Batumi. Participate from €1,000." />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content="%BASE_URL%og-image.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

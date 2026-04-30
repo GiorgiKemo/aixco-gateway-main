@@ -251,7 +251,7 @@
     transform: none;
   }
 
-  .scroll-reveal.is-armed [data-reveal="true"] {
+  .scroll-reveal[data-reveal-root="armed"] [data-reveal="true"] {
     transition:
       opacity 1500ms var(--ease-out-expo),
       filter 1500ms var(--ease-out-expo),
@@ -260,13 +260,13 @@
     will-change: opacity, filter, transform;
   }
 
-  .scroll-reveal.is-armed [data-reveal="true"][data-reveal-state="hidden"] {
+  .scroll-reveal[data-reveal-root="armed"] [data-reveal="true"][data-reveal-state="hidden"] {
     opacity: 0;
     filter: blur(16px);
     transform: translate3d(0, 72px, 0) scale(0.965);
   }
 
-  .scroll-reveal.is-armed [data-reveal="true"][data-reveal-state="visible"] {
+  .scroll-reveal[data-reveal-root="armed"] [data-reveal="true"][data-reveal-state="visible"] {
     opacity: 1;
     filter: blur(0);
     transform: translate3d(0, 0, 0) scale(1);
@@ -289,9 +289,9 @@
     transform: scale(1.06);
   }
 
-  .scroll-reveal.is-armed .group:hover .media-hover,
-  .scroll-reveal.is-armed .media-hover:hover,
-  .scroll-reveal.is-armed .media-hover.is-hovered {
+  .scroll-reveal[data-reveal-root="armed"] .group:hover .media-hover,
+  .scroll-reveal[data-reveal-root="armed"] .media-hover:hover,
+  .scroll-reveal[data-reveal-root="armed"] .media-hover.is-hovered {
     transform: scale(1.06);
   }
 
@@ -300,8 +300,8 @@
     transition: transform 1400ms var(--ease-out-expo);
   }
 
-  .scroll-reveal.is-armed [data-reveal-state="visible"] .premium-media,
-  .scroll-reveal.is-armed .premium-media[data-reveal-state="visible"] {
+  .scroll-reveal[data-reveal-root="armed"] [data-reveal-state="visible"] .premium-media,
+  .scroll-reveal[data-reveal-root="armed"] .premium-media[data-reveal-state="visible"] {
     transform: scale(1);
   }
 
@@ -338,25 +338,22 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
+    html {
+      scroll-behavior: auto;
     }
 
-    .scroll-reveal {
-      opacity: 1 !important;
-      filter: none !important;
-      transform: none !important;
+    .float-slow,
+    .shimmer-text {
+      animation: none;
     }
 
-    .scroll-reveal [data-reveal="true"],
-    .media-hover,
-    .group:hover .media-hover {
-      opacity: 1 !important;
-      filter: none !important;
-      transform: none !important;
+    .scroll-reveal[data-reveal-root="armed"] [data-reveal="true"] {
+      transition-duration: 700ms;
+    }
+
+    .scroll-reveal[data-reveal-root="armed"] [data-reveal="true"][data-reveal-state="hidden"] {
+      filter: none;
+      transform: translate3d(0, 28px, 0);
     }
   }
 }

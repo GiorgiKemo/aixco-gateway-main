@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIXCO Global</title>
+    <script>
+      var pathSegmentsToKeep = 1;
+      var locationRef = window.location;
+      var basePath = locationRef.pathname
+        .split("/")
+        .slice(0, 1 + pathSegmentsToKeep)
+        .join("/");
+      var routePath = locationRef.pathname
+        .slice(1)
+        .split("/")
+        .slice(pathSegmentsToKeep)
+        .join("/")
+        .replace(/&/g, "~and~");
+      var query = locationRef.search ? "&" + locationRef.search.slice(1).replace(/&/g, "~and~") : "";
+
+      locationRef.replace(
+        locationRef.protocol +
+          "//" +
+          locationRef.hostname +
+          (locationRef.port ? ":" + locationRef.port : "") +
+          basePath +
+          "/?/" +
+          routePath +
+          query +
+          locationRef.hash,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
