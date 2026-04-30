@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AIXCO Global">
+  <rect width="64" height="64" rx="14" fill="#101216"/>
+  <path d="M17 49 31.7 14.5h1.9L48 49h-8l-2.8-7.1H27.4L24.6 49h-7.6Zm13-13.6h4.6l-2.3-6.3-2.3 6.3Z" fill="#c49742"/>
+  <path d="M19 52h26" stroke="#f1d08a" stroke-width="3" stroke-linecap="round"/>
+</svg>
